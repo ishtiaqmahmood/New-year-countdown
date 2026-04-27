@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A beautiful and simple New Year countdown timer to track time until the next year begins.">
+  <meta name="keywords" content="New Year, Countdown, Timer, JavaScript, CSS, HTML">
   <link rel="stylesheet" href="style.css">
   <title>New Year Countdown</title>
 </head>
 <body>
-  <div id="year" class="year"></div>
+  <div id="year" class="year" aria-hidden="true"></div>
 
   <h1>New Year Countdown</h1>
 
-  <div id="countdown" class="countdown">
+  <div id="countdown" class="countdown" role="timer" aria-live="polite" style="display: none;">
     <div class="time">
       <h2 id="days">00</h2>
       <small>days</small>

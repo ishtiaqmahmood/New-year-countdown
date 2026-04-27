@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
+:root {
+  --primary-color: #fff;
+  --overlay-color: rgba(0, 0, 0, 0.5);
+  --year-opacity: 0.2;
+  --font-family: 'Lato', sans-serif;
+  --transition-speed: 0.3s;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -10,8 +18,8 @@ body {
   background-size: cover;
   background-position: center center;
   height: 100vh;
-  color: #fff;
-  font-family: 'Lato', sans-serif;
+  color: var(--primary-color);
+  font-family: var(--font-family);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,7 +37,8 @@ body::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.5);
+  background-color: var(--overlay-color);
+  z-index: 0;
 }
 
 body * {
@@ -44,7 +53,7 @@ h1 {
 .year {
   font-size: 200px;
   z-index: -1;
-  opacity: 0.2;
+  opacity: var(--year-opacity);
   position: absolute;
   bottom: 20px;
   left: 50%;
@@ -52,8 +61,10 @@ h1 {
 }
 
 .countdown {
-  display: flex;
+  display: none;
   transform: scale(2);
+  animation: fadeIn 1s ease-in;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .time {
@@ -68,9 +79,42 @@ h1 {
   margin: 0 0 5px;
 }
 
-@media(max-width: 500px) {
+.loading {
+  width: 100px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
   h1 {
     font-size: 45px;
+    margin: -40px 0 30px;
+  }
+
+  .countdown {
+    transform: scale(1.5);
+  }
+
+  .year {
+    font-size: 150px;
+  }
+}
+
+@media (max-width: 450px) {
+  h1 {
+    font-size: 35px;
+    margin: -20px 0 20px;
+  }
+
+  .countdown {
+    transform: scale(1.2);
   }
 
   .time {
@@ -78,11 +122,18 @@ h1 {
   }
 
   .time h2 {
-    font-size: 12px;
+    font-size: 24px;
     margin: 0;
   }
 
   .time small {
-    font-size: 10px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+  }
+
+  .year {
+    font-size: 100px;
   }
 }
