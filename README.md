@@ -2,7 +2,7 @@
 
 A sleek, responsive landing page that counts down the days, hours, minutes, and seconds until the start of the next year.
 
-![Project Preview](./img/preview.png)
+
 
 ## Features
 
